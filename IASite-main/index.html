@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações sobre IAs</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            padding-top: 320px;
+        }
+
+        .contentt {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .text, .image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .text {
+            font-size: 1.2em;
+        }
+
+        .image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            transition: 200ms linear; 
+        }
+
+        .image img:hover {
+            transform: scale(1.1);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #000;
+            font-size: 2em;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        header a:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes changeBackgroundColor {
+            0% {
+                background-color: #001F3F;
+            }
+            50% {
+                background-color: #FF4136;
+            }
+            100% {
+                background-color: #001F3F;
+            }
+        }
+
+        .slides {
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            height: 300px;
+            background-color: #001F3F;
+            overflow: hidden;
+            background-image: url(https://media.licdn.com/dms/image/D4E12AQHUlJSfKoxd_g/article-cover_image-shrink_720_1280/0/1690575402486?e=2147483647&v=beta&t=OX8V1qMLBCk2zO4lI5-SxXRyq0G22lNp6_Z_4znLzPE);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 300px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        #inicio {
+            background-color: rgba(236, 228, 228, 0.8);
+            color: #000;
+        }
+
+        footer h2 {
+            color: #fff;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            width: 100%;
+            z-index: 3;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        #hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        #hero .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #fff;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #f4f4f4;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#research">Inicio</a></li>
+                <li><a href="#products">Gamma</a></li>
+                <li><a href="#safety">Sora</a></li>
+                <li><a href="#company">Wix</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <video autoplay muted loop>
+            <source src="hero.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Inteligências Artificiais</h1>
+            <p>Sora <br> Wix  <br> Gamma </p>
+            <a href="#" class="btn">Read technical report</a>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <div class="contentt" id="inicio">
+            <div class="section">
+                <div class="text">
+                    <h2>Sora</h2>
+                    <p>Sora é uma IA avançada desenvolvida para fornecer assistência personalizada e recomendações inteligentes em uma variedade de campos. Com sua capacidade de entender contextos complexos e oferecer soluções precisas, Sora se destaca como uma ferramenta essencial para empresas e indivíduos que buscam otimizar processos e tomar decisões informadas.</p>
+                </div>
+                <div class="image">
+                    <img src="https://assets.eweek.com/uploads/2024/04/ew_20240426-openai-sora-overview.png" alt="Sora">
+                </div>
+            </div>
+            <div class="section">
+                <div class="text">
+                    <h2>Gamma</h2>
+                    <p>Gamma é uma IA poderosa usada para análises de dados complexas e previsões, ajudando empresas a tomar decisões baseadas em dados. Utilizando algoritmos avançados de machine learning, Gamma consegue identificar padrões e tendências que passam despercebidos aos olhos humanos, permitindo uma vantagem competitiva significativa em mercados dinâmicos.</p>
+                </div>
+                <div class="image">
+                    <img src="https://cdn.dribbble.com/userupload/8299491/file/still-c6ad89962de9948f89c8fd1f936713fd.png?resize=1600x1200" alt="Gamma">
+                </div>
+            </div>
+            <div class="section">
+                <div class="text">
+                    <h2>IA Criadora de Sites</h2>
+                    <p>Esta IA inovadora permite criar sites automaticamente, com estruturas responsivas e da forma que quiser descreve-la, auxiliando na criação de estruturas profissionais com efeitos e tudo que pode imaginar dentro de um site.</p>
+                </div>
+                <div class="image">
+                    <img src="https://cdn.shopify.com/s/files/1/1095/6418/files/Screenshot-2022-12-06-at-8.50.51-AM.jpg?v=1670334784" alt="IA Criadora de Sites">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="sobre-nos">
+        <h2>Sobre Nós</h2>
+        &copy; 2024 Informações sobre IAs. Todos os direitos reservados.
+    </footer>
+
+    <!-- Código do VLibras -->
+    <!-- Início do código relacionado ao plugin VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+
+</body>
+</html>
